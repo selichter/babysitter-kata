@@ -1,7 +1,15 @@
 class BabysitterKata::CLI
 
   def call
-    puts "Welcome"
+    greet_user
   end
+
+  def greet_user
+    puts 'Welcome'
+  end
+
+
+
+
 
 end
