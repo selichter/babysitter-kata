@@ -1,0 +1,2 @@
+class BabysitterKata::Job
+end
