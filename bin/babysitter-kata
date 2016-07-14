@@ -1,3 +1,6 @@
 #!/usr/bin/env ruby
+require 'pry'
 
-puts "Hello World"
+require './lib/babysitter_kata'
+
+BabysitterKata::CLI.new.call

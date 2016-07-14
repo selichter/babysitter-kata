@@ -1,0 +1,5 @@
+class BabysitterKata::CLI
+
+
+
+end
