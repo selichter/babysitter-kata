@@ -8,6 +8,9 @@ class BabysitterKata::CLI
     puts 'Welcome'
   end
 
+  def get_start_time
+    puts "What time did your babysitting job start?"
+  end
 
 
 

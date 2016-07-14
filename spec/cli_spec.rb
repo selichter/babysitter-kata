@@ -16,7 +16,12 @@ describe BabysitterKata::CLI do
 
   end
 
-
+  describe '#get_start_time' do
+    it 'asks the user for when their job started' do
+      cli = BabysitterKata::CLI.new
+      expect{cli.get_start_time}.to output("What time did your babysitting job start?\n").to_stdout
+    end
+  end
 
 
 end
