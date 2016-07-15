@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe BabysitterKata::Job do
 
-  let(:job){BabysitterKata::Job.new}
+  let(:job){BabysitterKata::Job.new("8pm", "5pm", "1am")}
 
   it 'is defined' do
     expect(BabysitterKata::Job).to be_a(Class)
@@ -24,6 +24,15 @@ describe BabysitterKata::Job do
       expect(job.leave_time).to eq("1 am")
     end
 
+
+  end
+
+  describe 'initialize' do
+    it 'accepts a start_time, bed_time, and leave_time' do
+      expect(job.start_time).to eq("5pm")
+      expect(job.bed_time).to eq("8pm")
+      expect(job.leave_time).to eq("1am")
+    end
 
   end
 

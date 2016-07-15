@@ -19,6 +19,13 @@ In order to get paid for 1 night of work
 I want to calculate my nightly charge
 
 --------------------
+Assumptions
+--------------------
+1) Pay will be calculated in such a way that the babysitter will earn the most money
+  -bed_time will be rounded up to the next hour ie - if bedtime is 8:30, it will be rounded up to 9
+
+
+--------------------
 Variables
 --------------------
 start_time  ---has a default value of 5 pm if no time is given by the user
@@ -42,3 +49,29 @@ Things to Consider
    - This will need to be converted into a usable format
    - I'll have to protect against invalid inputs
 2) the Time class uses 24 hour time    
+
+
+--------------------
+Job
+--------------------
+-needs to initialize start, bed, and leave time
+  -start_time should have a default value
+  -leave_time should have a default value
+
+-does midnight need to be a constant? Will doing so provide clarity or is using 0 or 24 enough?
+
+-times that need to be calculated
+  -start_to_bed_time
+  -bed_to_midnight -in this case midnight is 24
+  -midnight_to_leave_time -in this case midnight is 0
+    --with leave_time, we only need to round to the next hour since we're using a 24 hour clock
+
+-needs to convert inputs to Time usable format
+
+-needs to round to the correct hour (down for start and up for leave and bed)
+  -with the start time we don't actually need to round; we only need to grab the hour
+  -with bed/leave time we need to check that the minutes aren't equal to 00
+    --if mins equal 00 then we can just grab the hour
+    else t.hour.next
+
+-deal with the edge case that bed_time is after midnight
