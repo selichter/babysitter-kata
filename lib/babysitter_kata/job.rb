@@ -51,6 +51,9 @@ class BabysitterKata::Job
     format_leave_time - 0
   end
 
+  def calculate_payment
+    (start_to_bed_hours * 12) + (bed_to_midnight_hours * 8) + (midnight_to_leave_hours * 16) 
+  end
 
 
 end

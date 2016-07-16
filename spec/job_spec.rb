@@ -125,6 +125,16 @@ describe BabysitterKata::Job do
     end
   end
 
+  describe '#calculate_payment' do
+    it 'returns an integer' do
+      expect(job.calculate_payment).to be_a(Integer)
+    end
+
+    it 'can calculate the total payment' do
+      expect(job.calculate_payment).to eq(84)
+    end
+  end
+
 
 
 
