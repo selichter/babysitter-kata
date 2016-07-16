@@ -86,6 +86,17 @@ describe BabysitterKata::Job do
 
   end
 
+  describe 'bed_to_midnight_hours' do
+    it 'returns an integer' do
+      expect(job.bed_to_midnight_hours).to be_a(Integer)
+    end
+
+    it 'can calculate the difference between bedtime and midnight' do
+      expect(job.bed_to_midnight_hours).to eq(4)
+    end
+
+  end
+
 
 
 

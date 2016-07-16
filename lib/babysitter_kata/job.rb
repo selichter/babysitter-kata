@@ -35,5 +35,9 @@ class BabysitterKata::Job
     format_bed_time - format_start_time
   end
 
+  def bed_to_midnight_hours
+    24 - format_bed_time
+  end
+
 
 end
