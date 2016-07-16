@@ -1,5 +1,6 @@
 class BabysitterKata::CLI
 
+
   def call
     greet_user
     get_start_time
@@ -12,6 +13,11 @@ class BabysitterKata::CLI
 
   def get_start_time
     puts "What time did your babysitting job start?"
+  end
+
+  def time
+    BabysitterKata::Job.new.format_start_time("10pm")
+
   end
 
 

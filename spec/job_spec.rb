@@ -23,8 +23,6 @@ describe BabysitterKata::Job do
       job.leave_time = "1 am"
       expect(job.leave_time).to eq("1 am")
     end
-
-
   end
 
   describe 'initialize' do
@@ -33,8 +31,20 @@ describe BabysitterKata::Job do
       expect(job.bed_time).to eq("8pm")
       expect(job.leave_time).to eq("1am")
     end
+  end
+
+  describe '#format_start_time' do
+
+    it 'returns an integer' do
+      expect(job.format_start_time).to be_a(Integer)
+    end
+
+    it 'returns the start time hour' do
+      expect(job.format_start_time).to eq(17)
+    end
 
   end
+
 
 
 
