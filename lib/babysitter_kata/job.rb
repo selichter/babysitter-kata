@@ -16,19 +16,13 @@ class BabysitterKata::Job
   end
 
   def format_bed_time
-    if Time.parse(@bed_time).min != 00
-      Time.parse(@bed_time).hour.next
-    else
-      Time.parse(@bed_time).hour
-    end
+    bed = Time.parse(@bed_time)
+    bed.min != 00 ? bed.hour.next : bed.hour
   end
 
   def format_leave_time
-    if Time.parse(@leave_time).min != 00
-      Time.parse(@leave_time).hour.next
-    else
-      Time.parse(@leave_time).hour
-    end
+    leave = Time.parse(@leave_time)
+    leave.min != 00 ? leave.hour.next : leave.hour
   end
 
   def start_to_bed_hours
@@ -42,6 +36,7 @@ class BabysitterKata::Job
   def midnight_to_leave_hours
     format_leave_time - 0
   end
+  
 
 
 end
