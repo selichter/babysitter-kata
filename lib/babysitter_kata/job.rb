@@ -5,6 +5,8 @@ class BabysitterKata::Job
                 :bed_time,
                 :leave_time
 
+  AVAILABLE_START_TIME = 16
+
   def initialize(bed_time, start_time, leave_time )
     @start_time = start_time
     @bed_time = bed_time
@@ -18,6 +20,14 @@ class BabysitterKata::Job
   def format_bed_time
     bed = Time.parse(@bed_time)
     bed.min != 00 ? bed.hour.next : bed.hour
+  end
+
+  def bed_before_midnight?
+    if format_bed_time > AVAILABLE_START_TIME
+      true
+    else
+      false
+    end
   end
 
   def format_leave_time
@@ -36,7 +46,7 @@ class BabysitterKata::Job
   def midnight_to_leave_hours
     format_leave_time - 0
   end
-  
+
 
 
 end

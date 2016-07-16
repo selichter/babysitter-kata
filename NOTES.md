@@ -75,3 +75,11 @@ Job
     else t.hour.next
 
 -deal with the edge case that bed_time is after midnight
+
+-bedtime after midnight
+  Indicators that the bedtime is after midnight: -the parsed @bed_time is less than 16
+              -the parsed @bed_time is less than the earliest available time --available time becomes a constant to compare against.
+
+calculating if bedtime is after midnight:
+  (midnight - start_time) + (bedtime - 0)
+  
