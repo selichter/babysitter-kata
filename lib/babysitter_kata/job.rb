@@ -31,5 +31,9 @@ class BabysitterKata::Job
     end
   end
 
+  def start_to_bed_hours
+    format_bed_time - format_start_time
+  end
+
 
 end
