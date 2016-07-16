@@ -34,7 +34,6 @@ describe BabysitterKata::Job do
   end
 
   describe '#format_start_time' do
-
     it 'returns an integer' do
       expect(job.format_start_time).to be_a(Integer)
     end
@@ -42,9 +41,17 @@ describe BabysitterKata::Job do
     it 'returns the start time hour' do
       expect(job.format_start_time).to eq(17)
     end
-
   end
 
+  describe '#format_bed_time' do
+    it 'returns an integer' do
+      expect(job.format_bed_time).to be_a(Integer)
+    end
+
+    it 'returns the start time hour' do
+      expect(job.format_bed_time).to eq(20)
+    end
+  end
 
 
 

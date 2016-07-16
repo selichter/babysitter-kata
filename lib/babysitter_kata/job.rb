@@ -15,5 +15,8 @@ class BabysitterKata::Job
      Time.parse(@start_time).hour
   end
 
+  def format_bed_time
+     Time.parse(@bed_time).hour
+  end
 
 end
