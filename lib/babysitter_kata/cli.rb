@@ -16,8 +16,6 @@ class BabysitterKata::CLI
   end
 
   def time
-    BabysitterKata::Job.new.format_start_time("10pm")
-
   end
 
 

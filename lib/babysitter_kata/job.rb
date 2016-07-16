@@ -16,7 +16,11 @@ class BabysitterKata::Job
   end
 
   def format_bed_time
-     Time.parse(@bed_time).hour
+    if Time.parse(@bed_time).min != 00
+      Time.parse(@bed_time).hour.next
+    else
+      Time.parse(@bed_time).hour
+    end
   end
 
 end

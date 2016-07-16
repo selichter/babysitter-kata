@@ -48,8 +48,14 @@ describe BabysitterKata::Job do
       expect(job.format_bed_time).to be_a(Integer)
     end
 
-    it 'returns the start time hour' do
+    it 'returns the bed_time hour when bedtime is on the hour' do
+      job.bed_time = "8pm"
       expect(job.format_bed_time).to eq(20)
+    end
+
+    it 'returns the next hour if bed time is not on the hour' do
+        job.bed_time = "8:01pm"
+        expect(job.format_bed_time).to eq(21)
     end
   end
 
