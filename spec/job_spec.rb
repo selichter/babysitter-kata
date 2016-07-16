@@ -33,33 +33,33 @@ describe BabysitterKata::Job do
     end
   end
 
-  describe '#format_start_time' do
+  describe '#parse_start_time' do
     it 'returns the start time hour' do
-      expect(job.format_start_time).to eq(17)
+      expect(job.parse_start_time).to eq(17)
     end
   end
 
-  describe '#format_bed_time' do
+  describe '#parse_bed_time' do
     it 'returns the bed_time hour when bedtime is on the hour' do
       job.bed_time = "8pm"
-      expect(job.format_bed_time).to eq(20)
+      expect(job.parse_bed_time).to eq(20)
     end
 
     it 'returns the next hour if bed time is not on the hour' do
         job.bed_time = "8:01pm"
-        expect(job.format_bed_time).to eq(21)
+        expect(job.parse_bed_time).to eq(21)
     end
   end
 
-  describe '#format_leave_time' do
+  describe '#parse_leave_time' do
     it 'returns the leave_time hour when leave_time is on the hour' do
       job.leave_time = "1am"
-      expect(job.format_leave_time).to eq(1)
+      expect(job.parse_leave_time).to eq(1)
     end
 
     it 'returns the next hour if leave_time is not on the hour' do
         job.leave_time = "1:01am"
-        expect(job.format_leave_time).to eq(2)
+        expect(job.parse_leave_time).to eq(2)
     end
   end
 

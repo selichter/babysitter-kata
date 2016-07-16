@@ -13,42 +13,42 @@ class BabysitterKata::Job
     @leave_time = leave_time
   end
 
-  def format_start_time
+  def parse_start_time
      Time.parse(@start_time).hour
   end
 
-  def format_bed_time
+  def parse_bed_time
     bed = Time.parse(@bed_time)
     bed.min != 00 ? bed.hour.next : bed.hour
   end
 
   def bed_before_midnight?
-    if format_bed_time > AVAILABLE_START_TIME
+    if parse_bed_time > AVAILABLE_START_TIME
       true
     else
       false
     end
   end
 
-  def format_leave_time
+  def parse_leave_time
     leave = Time.parse(@leave_time)
     leave.min != 00 ? leave.hour.next : leave.hour
   end
 
   def start_to_bed_hours
     if bed_before_midnight?
-      format_bed_time - format_start_time
+      parse_bed_time - parse_start_time
     else
-      (24 - format_start_time) + (format_bed_time)
+      (24 - parse_start_time) + (parse_bed_time)
     end
   end
 
   def bed_to_midnight_hours
-    24 - format_bed_time
+    24 - parse_bed_time
   end
 
   def midnight_to_leave_hours
-    format_leave_time - 0
+    parse_leave_time - 0
   end
 
   def calculate_payment
