@@ -80,8 +80,13 @@ describe BabysitterKata::Job do
       expect(job.start_to_bed_hours).to be_a(Integer)
     end
 
-    it 'can calculate the difference between start and bed time' do
+    it 'can calculate the difference between start and bed time when bed is before midnight' do
       expect(job.start_to_bed_hours).to eq(3)
+    end
+
+    it 'can calculate difference if bed time is after midnight' do
+      job.bed_time = "1am"
+      expect(job.start_to_bed_hours).to be(8)
     end
 
   end

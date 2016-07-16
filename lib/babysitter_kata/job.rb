@@ -36,7 +36,11 @@ class BabysitterKata::Job
   end
 
   def start_to_bed_hours
-    format_bed_time - format_start_time
+    if bed_before_midnight?
+      format_bed_time - format_start_time
+    else
+      (24 - format_start_time) + (format_bed_time)
+    end
   end
 
   def bed_to_midnight_hours
