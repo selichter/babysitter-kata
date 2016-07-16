@@ -59,6 +59,22 @@ describe BabysitterKata::Job do
     end
   end
 
+  describe '#format_leave_time' do
+    it 'returns an integer' do
+      expect(job.format_leave_time).to be_a(Integer)
+    end
+
+    it 'returns the leave_time hour when leave_time is on the hour' do
+      job.leave_time = "1am"
+      expect(job.format_leave_time).to eq(1)
+    end
+
+    it 'returns the next hour if leave_time is not on the hour' do
+        job.leave_time = "1:01am"
+        expect(job.format_leave_time).to eq(2)
+    end
+  end
+
 
 
 

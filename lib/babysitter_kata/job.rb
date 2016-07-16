@@ -23,4 +23,13 @@ class BabysitterKata::Job
     end
   end
 
+  def format_leave_time
+    if Time.parse(@leave_time).min != 00
+      Time.parse(@leave_time).hour.next
+    else
+      Time.parse(@leave_time).hour
+    end
+  end
+
+
 end
