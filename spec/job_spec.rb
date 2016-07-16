@@ -34,20 +34,12 @@ describe BabysitterKata::Job do
   end
 
   describe '#format_start_time' do
-    it 'returns an integer' do
-      expect(job.format_start_time).to be_a(Integer)
-    end
-
     it 'returns the start time hour' do
       expect(job.format_start_time).to eq(17)
     end
   end
 
   describe '#format_bed_time' do
-    it 'returns an integer' do
-      expect(job.format_bed_time).to be_a(Integer)
-    end
-
     it 'returns the bed_time hour when bedtime is on the hour' do
       job.bed_time = "8pm"
       expect(job.format_bed_time).to eq(20)
@@ -60,10 +52,6 @@ describe BabysitterKata::Job do
   end
 
   describe '#format_leave_time' do
-    it 'returns an integer' do
-      expect(job.format_leave_time).to be_a(Integer)
-    end
-
     it 'returns the leave_time hour when leave_time is on the hour' do
       job.leave_time = "1am"
       expect(job.format_leave_time).to eq(1)
@@ -76,10 +64,6 @@ describe BabysitterKata::Job do
   end
 
   describe '#start_to_bed_hours' do
-    it 'returns an integer' do
-      expect(job.start_to_bed_hours).to be_a(Integer)
-    end
-
     it 'can calculate the difference between start and bed time when bed is before midnight' do
       expect(job.start_to_bed_hours).to eq(3)
     end
@@ -105,10 +89,6 @@ describe BabysitterKata::Job do
   end
 
   describe '#bed_to_midnight_hours' do
-    it 'returns an integer' do
-      expect(job.bed_to_midnight_hours).to be_a(Integer)
-    end
-
     it 'can calculate the difference between bedtime and midnight' do
       expect(job.bed_to_midnight_hours).to eq(4)
     end
@@ -116,29 +96,15 @@ describe BabysitterKata::Job do
   end
 
   describe '#midnight_to_leave_hours' do
-    it 'returns an integer' do
-      expect(job.midnight_to_leave_hours).to be_a(Integer)
-    end
-
     it 'can calculate the difference between bedtime and midnight' do
       expect(job.midnight_to_leave_hours).to eq(1)
     end
   end
 
   describe '#calculate_payment' do
-    it 'returns an integer' do
-      expect(job.calculate_payment).to be_a(Integer)
-    end
-
     it 'can calculate the total payment' do
       expect(job.calculate_payment).to eq(84)
     end
   end
-
-
-
-
-
-
 
 end
