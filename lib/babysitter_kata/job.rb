@@ -31,6 +31,10 @@ class BabysitterKata::Job
     get_hour(@bed_time) > AVAILABLE_START_TIME ? true : false
   end
 
+  def before_midnight?(time)
+    get_hour(time) > AVAILABLE_START_TIME && get_hour(time) < MIDNIGHT ? true : false
+  end
+
   def start_to_bed_hours
     if bed_before_midnight?
       get_hour(@bed_time) - parse_time(@start_time).hour
@@ -43,7 +47,7 @@ class BabysitterKata::Job
     MIDNIGHT - get_hour(@bed_time)
   end
 
-  def midnight_to_leave_hours #this only works if leave time is after midnight - what if it's before midnight?
+  def midnight_to_leave_hours
     get_hour(@leave_time)
   end
 
