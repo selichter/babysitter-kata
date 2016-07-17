@@ -22,10 +22,6 @@ class BabysitterKata::Job
     Time.parse(str)
   end
 
-  def parse_start_time
-     Time.parse(@start_time).hour
-  end
-
   def parse_bed_time
     bed = Time.parse(@bed_time)
     bed.min != 00 ? bed.hour.next : bed.hour
@@ -43,9 +39,9 @@ class BabysitterKata::Job
 
   def start_to_bed_hours
     if bed_before_midnight?
-      parse_bed_time - parse_start_time
+      parse_bed_time - parse_time(@start_time).hour
     else
-      (MIDNIGHT - parse_start_time) + (parse_bed_time)
+      MIDNIGHT - parse_time(@start_time).hour + parse_bed_time
     end
   end
 

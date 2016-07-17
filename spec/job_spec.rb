@@ -40,12 +40,6 @@ describe BabysitterKata::Job do
     end
   end
 
-  describe '#parse_start_time' do
-    it 'returns the start time hour' do
-      expect(job.parse_start_time).to eq(17)
-    end
-  end
-
   describe '#parse_bed_time' do
     it 'returns the bed_time hour when bedtime is on the hour' do
       job.bed_time = "8pm"
