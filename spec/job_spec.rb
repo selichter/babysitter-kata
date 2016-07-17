@@ -25,7 +25,7 @@ describe BabysitterKata::Job do
     end
   end
 
-  describe 'initialize' do
+  describe '#initialize' do
     it 'accepts a start_time, bed_time, and leave_time' do
       expect(job.start_time).to eq("5pm")
       expect(job.bed_time).to eq("8pm")
@@ -61,7 +61,6 @@ describe BabysitterKata::Job do
       job.bed_time = "1am"
       expect(job.start_to_bed_hours).to be(8)
     end
-
   end
 
   describe '#before_midnight?' do
@@ -80,13 +79,20 @@ describe BabysitterKata::Job do
     it 'can calculate the difference between bedtime and midnight' do
       expect(job.bed_to_midnight_hours).to eq(4)
     end
+  end
 
+  describe '#bed_to_leave_hours' do
+    it 'can calculate the difference between bed and leave times' do
+      job.leave_time = "10pm"
+      expect(job.bed_to_leave_hours).to eq(2)
+    end
   end
 
   describe '#midnight_to_leave_hours' do
-    it 'can calculate the difference between bedtime and midnight' do
+    it 'calculates the difference between bedtime and midnight when bed is after midnight' do
       expect(job.midnight_to_leave_hours).to eq(1)
     end
+
   end
 
   describe '#validate_times' do

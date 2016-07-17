@@ -43,6 +43,10 @@ class BabysitterKata::Job
     MIDNIGHT - get_hour(@bed_time)
   end
 
+  def bed_to_leave_hours
+    get_hour(@leave_time) - get_hour(@bed_time)
+  end
+
   def midnight_to_leave_hours
     get_hour(@leave_time)
   end
