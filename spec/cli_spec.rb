@@ -9,11 +9,9 @@ describe BabysitterKata::CLI do
 
 
   describe '#greet_user' do
-
     it 'Welcomes the user upon call' do
       expect{cli.greet_user}.to output("Welcome\n").to_stdout
     end
-
   end
 
   describe '#get_start_time' do
@@ -21,7 +19,6 @@ describe BabysitterKata::CLI do
     it 'asks the user for when their job started' do
       expect{cli.get_start_time}.to output("What time did your babysitting job start?\n").to_stdout
     end
-
 
   end
 

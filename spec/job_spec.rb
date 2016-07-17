@@ -101,6 +101,15 @@ describe BabysitterKata::Job do
     end
   end
 
+  describe '#validate_times' do
+
+    it 'raises an error if the start time is before the available start time' do
+      job.start_time = '2pm'
+      expect {job.validate_times}.to raise_error(StandardError)
+    end
+
+  end
+
   describe '#calculate_payment' do
     it 'can calculate the total payment' do
       expect(job.calculate_payment).to eq(84)

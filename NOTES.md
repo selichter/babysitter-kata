@@ -82,4 +82,3 @@ Job
 
 calculating if bedtime is after midnight:
   (midnight - start_time) + (bedtime - 0)
-  

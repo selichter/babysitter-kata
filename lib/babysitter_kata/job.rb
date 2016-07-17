@@ -5,7 +5,7 @@ class BabysitterKata::Job
                 :bed_time,
                 :leave_time
 
-  AVAILABLE_START_TIME = 16
+  AVAILABLE_START_TIME = 17
 
   def initialize(bed_time, start_time, leave_time )
     @start_time = start_time
@@ -51,9 +51,17 @@ class BabysitterKata::Job
     parse_leave_time - 0
   end
 
-  def calculate_payment
-    (start_to_bed_hours * 12) + (bed_to_midnight_hours * 8) + (midnight_to_leave_hours * 16)
+  def validate_times
+    if Time.parse(@start_time).hour < AVAILABLE_START_TIME
+      raise StandardError, 'The earliest available start time is 5pm.'
+    end
   end
 
+
+
+  def calculate_payment
+    validate_times
+    (start_to_bed_hours * 12) + (bed_to_midnight_hours * 8) + (midnight_to_leave_hours * 16)
+  end
 
 end
