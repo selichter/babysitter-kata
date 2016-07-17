@@ -27,16 +27,12 @@ class BabysitterKata::Job
     parsed_time.min != 00 ? parsed_time.hour.next : parsed_time.hour
   end
 
-  def bed_before_midnight?
-    get_hour(@bed_time) > AVAILABLE_START_TIME ? true : false
-  end
-
   def before_midnight?(time)
     get_hour(time) > AVAILABLE_START_TIME && get_hour(time) < MIDNIGHT ? true : false
   end
 
   def start_to_bed_hours
-    if bed_before_midnight?
+    if before_midnight?(@bed_time)
       get_hour(@bed_time) - parse_time(@start_time).hour
     else
       MIDNIGHT - parse_time(@start_time).hour + get_hour(@bed_time)
