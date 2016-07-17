@@ -12,6 +12,7 @@ class BabysitterKata::Job
   BED_TO_MIDNIGHT_RATE = 8
   MIDNIGHT_TO_LEAVE_RATE = 16
 
+
   def initialize(bed_time, start_time, leave_time )
     @start_time = start_time
     @bed_time = bed_time
@@ -58,7 +59,6 @@ class BabysitterKata::Job
       raise StandardError, 'The sitter must leave by 4am.'
     end
   end
-
 
   def calculate_payment
     validate_times

@@ -110,10 +110,6 @@ describe BabysitterKata::Job do
 
   end
 
-  describe '#calculate_payment' do
-    it 'can calculate the total payment' do
-      expect(job.calculate_payment).to eq(84)
-    end
-  end
+
 
 end
