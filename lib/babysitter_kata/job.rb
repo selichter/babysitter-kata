@@ -22,38 +22,25 @@ class BabysitterKata::Job
     Time.parse(str)
   end
 
-  #get out
-  def parse_bed_time
-    bed = Time.parse(@bed_time)
-    bed.min != 00 ? bed.hour.next : bed.hour
-  end
-
   def get_hour(str)
     parsed_time = parse_time(str)
     parsed_time.min != 00 ? parsed_time.hour.next : parsed_time.hour
   end
 
-
   def bed_before_midnight?
     get_hour(@bed_time) > AVAILABLE_START_TIME ? true : false
   end
 
-  # #get out
-  # def parse_leave_time
-  #   leave = Time.parse(@leave_time)
-  #   leave.min != 00 ? leave.hour.next : leave.hour
-  # end
-
   def start_to_bed_hours
     if bed_before_midnight?
-      parse_bed_time - parse_time(@start_time).hour
+      get_hour(@bed_time) - parse_time(@start_time).hour
     else
-      MIDNIGHT - parse_time(@start_time).hour + parse_bed_time
+      MIDNIGHT - parse_time(@start_time).hour + get_hour(@bed_time)
     end
   end
 
   def bed_to_midnight_hours
-    MIDNIGHT - parse_bed_time
+    MIDNIGHT - get_hour(@bed_time)
   end
 
   def midnight_to_leave_hours #this only works if leave time is after midnight - what if it's before midnight?
