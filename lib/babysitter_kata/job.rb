@@ -22,20 +22,27 @@ class BabysitterKata::Job
     Time.parse(str)
   end
 
+  #get out
   def parse_bed_time
     bed = Time.parse(@bed_time)
     bed.min != 00 ? bed.hour.next : bed.hour
   end
 
+  def get_hour(str)
+    parsed_time = parse_time(str)
+    parsed_time.min != 00 ? parsed_time.hour.next : parsed_time.hour
+  end
+
 
   def bed_before_midnight?
-    parse_bed_time > AVAILABLE_START_TIME ? true : false
+    get_hour(@bed_time) > AVAILABLE_START_TIME ? true : false
   end
 
-  def parse_leave_time
-    leave = Time.parse(@leave_time)
-    leave.min != 00 ? leave.hour.next : leave.hour
-  end
+  # #get out
+  # def parse_leave_time
+  #   leave = Time.parse(@leave_time)
+  #   leave.min != 00 ? leave.hour.next : leave.hour
+  # end
 
   def start_to_bed_hours
     if bed_before_midnight?
@@ -49,14 +56,14 @@ class BabysitterKata::Job
     MIDNIGHT - parse_bed_time
   end
 
-  def midnight_to_leave_hours
-    parse_leave_time - 0
+  def midnight_to_leave_hours #this only works if leave time is after midnight - what if it's before midnight?
+    get_hour(@leave_time)
   end
 
   def validate_times
     if parse_time(@start_time).hour < AVAILABLE_START_TIME
       raise StandardError, 'The earliest available start time is 5pm.'
-    elsif parse_leave_time > LEAVE_BY
+    elsif get_hour(@leave_time) > LEAVE_BY
       raise StandardError, 'The sitter must leave by 4am.'
     end
   end

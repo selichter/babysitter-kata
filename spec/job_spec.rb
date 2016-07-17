@@ -42,39 +42,39 @@ describe BabysitterKata::Job do
 
   describe '#get_hour' do
     it 'returns the current hour when time passed is on the hour' do
-      job.leave_time = "1am"
-      expect(job.parse_leave_time).to eq(1)
+      leave_time = "1am"
+      expect(job.get_hour(leave_time)).to eq(1)
     end
 
     it 'returns the next hour if time passed is not on the hour' do
-        job.leave_time = "1:01am"
-        expect(job.parse_leave_time).to eq(2)
+        leave_time = "1:01am"
+        expect(job.get_hour(leave_time)).to eq(2)
     end
   end
 
-  describe '#parse_bed_time' do
-    it 'returns the bed_time hour when bedtime is on the hour' do
-      job.bed_time = "8pm"
-      expect(job.parse_bed_time).to eq(20)
-    end
-
-    it 'returns the next hour if bed time is not on the hour' do
-        job.bed_time = "8:01pm"
-        expect(job.parse_bed_time).to eq(21)
-    end
-  end
-
-  describe '#parse_leave_time' do
-    it 'returns the leave_time hour when leave_time is on the hour' do
-      job.leave_time = "1am"
-      expect(job.parse_leave_time).to eq(1)
-    end
-
-    it 'returns the next hour if leave_time is not on the hour' do
-        job.leave_time = "1:01am"
-        expect(job.parse_leave_time).to eq(2)
-    end
-  end
+  # describe '#parse_bed_time' do
+  #   it 'returns the bed_time hour when bedtime is on the hour' do
+  #     job.bed_time = "8pm"
+  #     expect(job.parse_bed_time).to eq(20)
+  #   end
+  #
+  #   it 'returns the next hour if bed time is not on the hour' do
+  #       job.bed_time = "8:01pm"
+  #       expect(job.parse_bed_time).to eq(21)
+  #   end
+  # end
+  #
+  # describe '#parse_leave_time' do
+  #   it 'returns the leave_time hour when leave_time is on the hour' do
+  #     job.leave_time = "1am"
+  #     expect(job.parse_leave_time).to eq(1)
+  #   end
+  #
+  #   it 'returns the next hour if leave_time is not on the hour' do
+  #       job.leave_time = "1:01am"
+  #       expect(job.parse_leave_time).to eq(2)
+  #   end
+  # end
 
   describe '#start_to_bed_hours' do
     it 'can calculate the difference between start and bed time when bed is before midnight' do
