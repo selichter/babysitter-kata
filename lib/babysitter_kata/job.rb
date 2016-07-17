@@ -53,14 +53,12 @@ class BabysitterKata::Job
   end
 
   def validate_times
-    if Time.parse(@start_time).hour < AVAILABLE_START_TIME
+    if parse_start_time < AVAILABLE_START_TIME
       raise StandardError, 'The earliest available start time is 5pm.'
-    elsif Time.parse(@leave_time).hour > LEAVE_BY
-      # this doesn't deal with the mins...
+    elsif parse_leave_time > LEAVE_BY
       raise StandardError, 'The sitter must leave by 4am.'
     end
   end
-
 
 
   def calculate_payment
