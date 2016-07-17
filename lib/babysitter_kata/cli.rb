@@ -17,7 +17,7 @@ class BabysitterKata::CLI
 
   def time
 
-    job = BabysitterKata::Job.new("8pm", "3pm", "1am")
+    job = BabysitterKata::Job.new("8pm", "6pm", "3am")
     job.calculate_payment
   end
 

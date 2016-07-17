@@ -108,6 +108,12 @@ describe BabysitterKata::Job do
       expect {job.validate_times}.to raise_error(StandardError)
     end
 
+    it 'raises an error if the leave time is after 4am' do
+      job.start_time = '5pm'
+      job.leave_time = '5am'
+      expect {job.validate_times}.to raise_error(StandardError)
+    end
+
   end
 
   describe '#calculate_payment' do

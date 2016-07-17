@@ -6,6 +6,7 @@ class BabysitterKata::Job
                 :leave_time
 
   AVAILABLE_START_TIME = 17
+  LEAVE_BY = 4
 
   def initialize(bed_time, start_time, leave_time )
     @start_time = start_time
@@ -54,6 +55,9 @@ class BabysitterKata::Job
   def validate_times
     if Time.parse(@start_time).hour < AVAILABLE_START_TIME
       raise StandardError, 'The earliest available start time is 5pm.'
+    elsif Time.parse(@leave_time).hour > LEAVE_BY
+      # this doesn't deal with the mins...
+      raise StandardError, 'The sitter must leave by 4am.'
     end
   end
 
