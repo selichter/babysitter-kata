@@ -40,6 +40,18 @@ describe BabysitterKata::Job do
     end
   end
 
+  describe '#get_hour' do
+    it 'returns the current hour when time passed is on the hour' do
+      job.leave_time = "1am"
+      expect(job.parse_leave_time).to eq(1)
+    end
+
+    it 'returns the next hour if time passed is not on the hour' do
+        job.leave_time = "1:01am"
+        expect(job.parse_leave_time).to eq(2)
+    end
+  end
+
   describe '#parse_bed_time' do
     it 'returns the bed_time hour when bedtime is on the hour' do
       job.bed_time = "8pm"
