@@ -7,6 +7,7 @@ class BabysitterKata::Job
 
   AVAILABLE_START_TIME = 17
   LEAVE_BY = 4
+  MIDNIGHT = 24
 
   def initialize(bed_time, start_time, leave_time )
     @start_time = start_time
@@ -40,12 +41,12 @@ class BabysitterKata::Job
     if bed_before_midnight?
       parse_bed_time - parse_start_time
     else
-      (24 - parse_start_time) + (parse_bed_time)
+      (MIDNIGHT - parse_start_time) + (parse_bed_time)
     end
   end
 
   def bed_to_midnight_hours
-    24 - parse_bed_time
+    MIDNIGHT - parse_bed_time
   end
 
   def midnight_to_leave_hours
