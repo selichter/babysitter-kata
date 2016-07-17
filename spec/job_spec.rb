@@ -33,6 +33,13 @@ describe BabysitterKata::Job do
     end
   end
 
+  describe '#parse_time' do
+    it 'parses times passed to the method as a string' do
+      str = "5pm"
+      expect(job.parse_time(str)).to be_instance_of(Time)
+    end
+  end
+
   describe '#parse_start_time' do
     it 'returns the start time hour' do
       expect(job.parse_start_time).to eq(17)
