@@ -82,3 +82,13 @@ Job
 
 calculating if bedtime is after midnight:
   (midnight - start_time) + (bedtime - 0)
+
+
+NEXT STEPS
+1 - Build a module for things that format a given time to an hour
+2 - Is Invoice the right class to calculate payment?
+  - Should I have a Payment class that has the constants for the rates and calculates the value of each time period?
+3 - Remove CLI - you should initiate a new job like so:
+  job = BabysitterKata::Job.new(start, bed, leave)
+4 - Where is the right place for validate_times ?
+5 - Job class keeps methods that are specific to that job - calculating time periods and the final payment calculation

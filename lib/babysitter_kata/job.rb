@@ -19,19 +19,23 @@ class BabysitterKata::Job
     @leave_time = leave_time
   end
 
+  # deals with hour conversion/formatting
   def parse_time(str)
     Time.parse(str)
   end
 
+  # deals with hour conversion/formatting
   def get_hour(str)
     parsed_time = parse_time(str)
     parsed_time.min != 00 ? parsed_time.hour.next : parsed_time.hour
   end
 
+  # deals with hour conversion/formatting
   def before_midnight?(time)
     get_hour(time) >= AVAILABLE_START_TIME && get_hour(time) <= MIDNIGHT ? true : false
   end
 
+  # Calculates a time period
   def start_to_bed_hours
     if before_midnight?(@bed_time) === true
       get_hour(@bed_time) - parse_time(@start_time).hour
@@ -40,14 +44,15 @@ class BabysitterKata::Job
     end
   end
 
+# Calculates a time period
   def bed_to_midnight_hours
     MIDNIGHT - get_hour(@bed_time)
   end
-
+# Calculates a time period
   def bed_to_leave_hours
     get_hour(@leave_time) - get_hour(@bed_time)
   end
-
+# Calculates a time period
   def midnight_to_leave_hours
     get_hour(@leave_time)
   end
@@ -60,9 +65,9 @@ class BabysitterKata::Job
     end
   end
 
-  # def calculate_payment
-  #   validate_times
-  #    start_to_bed_hours * START_TO_BED_RATE + bed_to_midnight_hours * BED_TO_MIDNIGHT_RATE + midnight_to_leave_hours * MIDNIGHT_TO_LEAVE_RATE
-  # end
+  def calculate_payment
+    validate_times
+     start_to_bed_hours * START_TO_BED_RATE + bed_to_midnight_hours * BED_TO_MIDNIGHT_RATE + midnight_to_leave_hours * MIDNIGHT_TO_LEAVE_RATE
+  end
 
 end
