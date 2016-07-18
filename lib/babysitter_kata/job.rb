@@ -12,8 +12,7 @@ class BabysitterKata::Job
   BED_TO_MIDNIGHT_RATE = 8
   MIDNIGHT_TO_LEAVE_RATE = 16
 
-
-  def initialize(bed_time, start_time, leave_time )
+  def initialize( start_time, bed_time, leave_time )
     @start_time = start_time
     @bed_time = bed_time
     @leave_time = leave_time
@@ -29,11 +28,11 @@ class BabysitterKata::Job
   end
 
   def before_midnight?(time)
-    get_hour(time) > AVAILABLE_START_TIME && get_hour(time) < MIDNIGHT ? true : false
+    get_hour(time) >= AVAILABLE_START_TIME && get_hour(time) <= MIDNIGHT ? true : false
   end
 
   def start_to_bed_hours
-    if before_midnight?(@bed_time)
+    if before_midnight?(@bed_time) === true
       get_hour(@bed_time) - parse_time(@start_time).hour
     else
       MIDNIGHT - parse_time(@start_time).hour + get_hour(@bed_time)
@@ -62,7 +61,8 @@ class BabysitterKata::Job
 
   def calculate_payment
     validate_times
-    (start_to_bed_hours * START_TO_BED_RATE) + (bed_to_midnight_hours * BED_TO_MIDNIGHT_RATE) + (midnight_to_leave_hours * MIDNIGHT_TO_LEAVE_RATE)
+     start_to_bed_hours * START_TO_BED_RATE + bed_to_midnight_hours * BED_TO_MIDNIGHT_RATE + midnight_to_leave_hours * MIDNIGHT_TO_LEAVE_RATE
+    
   end
 
 end
