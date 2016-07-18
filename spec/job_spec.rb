@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe BabysitterKata::Job do
 
-  let(:job){BabysitterKata::Job.new("8pm", "5pm", "1am")}
+  let(:job){BabysitterKata::Job.new("5pm", "8pm", "1am")}
 
   it 'is defined' do
     expect(BabysitterKata::Job).to be_a(Class)

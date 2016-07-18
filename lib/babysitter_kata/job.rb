@@ -1,16 +1,17 @@
 require 'time'
 
 class BabysitterKata::Job
-  attr_accessor :start_time,
-                :bed_time,
-                :leave_time
 
   AVAILABLE_START_TIME = 17
-  LEAVE_BY = 4
   MIDNIGHT = 24
   START_TO_BED_RATE = 12
   BED_TO_MIDNIGHT_RATE = 8
   MIDNIGHT_TO_LEAVE_RATE = 16
+
+
+  attr_accessor :start_time,
+                :bed_time,
+                :leave_time
 
   def initialize( start_time, bed_time, leave_time )
     @start_time = start_time
@@ -59,10 +60,9 @@ class BabysitterKata::Job
     end
   end
 
-  def calculate_payment
-    validate_times
-     start_to_bed_hours * START_TO_BED_RATE + bed_to_midnight_hours * BED_TO_MIDNIGHT_RATE + midnight_to_leave_hours * MIDNIGHT_TO_LEAVE_RATE
-    
-  end
+  # def calculate_payment
+  #   validate_times
+  #    start_to_bed_hours * START_TO_BED_RATE + bed_to_midnight_hours * BED_TO_MIDNIGHT_RATE + midnight_to_leave_hours * MIDNIGHT_TO_LEAVE_RATE
+  # end
 
 end
