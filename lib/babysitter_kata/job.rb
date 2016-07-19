@@ -1,6 +1,8 @@
 require 'time'
+require_relative './hour.rb'
 
 class BabysitterKata::Job
+  include Hour
 
   AVAILABLE_START_TIME = 17
   MIDNIGHT = 24
@@ -20,17 +22,7 @@ class BabysitterKata::Job
   end
 
   # deals with hour conversion/formatting
-  def parse_time(str)
-    Time.parse(str)
-  end
-
-  # deals with hour conversion/formatting
-  def get_hour(str)
-    parsed_time = parse_time(str)
-    parsed_time.min != 00 ? parsed_time.hour.next : parsed_time.hour
-  end
-
-  # deals with hour conversion/formatting
+  # this method isn't about the time being before midnight, but more about it being between 5 and midnight...
   def before_midnight?(time)
     get_hour(time) >= AVAILABLE_START_TIME && get_hour(time) <= MIDNIGHT ? true : false
   end

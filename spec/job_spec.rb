@@ -33,25 +33,6 @@ describe BabysitterKata::Job do
     end
   end
 
-  describe '#parse_time' do
-    it 'parses times passed to the method as a string' do
-      str = "5pm"
-      expect(job.parse_time(str)).to be_instance_of(Time)
-    end
-  end
-
-  describe '#get_hour' do
-    it 'returns the current hour when time passed is on the hour' do
-      leave_time = "1am"
-      expect(job.get_hour(leave_time)).to eq(1)
-    end
-
-    it 'returns the next hour if time passed is not on the hour' do
-        leave_time = "1:01am"
-        expect(job.get_hour(leave_time)).to eq(2)
-    end
-  end
-
   describe '#start_to_bed_hours' do
     it 'can calculate the difference between start and bed time when bed is before midnight' do
       expect(job.start_to_bed_hours).to eq(3)
