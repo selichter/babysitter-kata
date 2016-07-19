@@ -1,6 +1,3 @@
 #!/usr/bin/env ruby
 require 'pry'
-
 require './lib/babysitter_kata'
-
-BabysitterKata::CLI.new.call

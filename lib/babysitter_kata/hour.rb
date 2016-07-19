@@ -1,10 +1,6 @@
 require 'time'
 
 module Hour
-  def test_method
-     "I'm testing the Hour module"
-  end
-
 
   def parse_time(str)
     Time.parse(str)

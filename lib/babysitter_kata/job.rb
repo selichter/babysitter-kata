@@ -5,6 +5,7 @@ class BabysitterKata::Job
   include Hour
 
   AVAILABLE_START_TIME = 17
+  LEAVE_BY = 4
   MIDNIGHT = 24
   START_TO_BED_RATE = 12
   BED_TO_MIDNIGHT_RATE = 8
@@ -23,6 +24,7 @@ class BabysitterKata::Job
 
   # deals with hour conversion/formatting
   # this method isn't about the time being before midnight, but more about it being between 5 and midnight...
+  #is this actually a validation?
   def before_midnight?(time)
     get_hour(time) >= AVAILABLE_START_TIME && get_hour(time) <= MIDNIGHT ? true : false
   end
