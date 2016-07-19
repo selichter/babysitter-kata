@@ -41,10 +41,14 @@ describe BabysitterKata::Invoice do
 
   describe '#bed_to_midnight_pmt' do
     it 'calculates the payment for the bed and midnight' do
-      expect(invoice.start_to_bed_pmt).to eq(36)
+      expect(invoice.bed_to_midnight_pmt).to eq(16)
     end
   end
 
-
+  describe '#midnight_to_leave_pmt' do
+    it 'calculates the payment for the midnight to leave time period' do
+      expect(invoice.midnight_to_leave_pmt).to eq(16)
+    end
+  end
 
 end
