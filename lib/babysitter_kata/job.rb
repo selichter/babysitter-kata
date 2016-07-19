@@ -22,7 +22,7 @@ class BabysitterKata::Job
     if pm?(@bed_time)
       get_hour(@bed_time) - start_hour(@start_time)
     else
-      MIDNIGHT - parse_time(@start_time).hour + get_hour(@bed_time)
+      MIDNIGHT - start_hour(@start_time) + get_hour(@bed_time)
     end
   end
 
