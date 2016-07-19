@@ -44,18 +44,6 @@ describe BabysitterKata::Job do
     end
   end
 
-  # describe '#before_midnight?' do
-  #   it 'returns true if time passed is before midnight' do
-  #     bed_time = "11pm"
-  #     expect(job.before_midnight?(bed_time)).to be(true)
-  #   end
-  #
-  #   it 'returns false if bedtime is after midnight' do
-  #     bed_time = "1am"
-  #     expect(job.before_midnight?(bed_time)).to be(false)
-  #   end
-  # end
-
   describe '#bed_to_midnight_hours' do
     it 'can calculate the difference between bedtime and midnight' do
       expect(job.bed_to_midnight_hours).to eq(4)
