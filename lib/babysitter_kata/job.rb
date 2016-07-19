@@ -6,12 +6,10 @@ class BabysitterKata::Job
   include Hour
   include Validator
 
-
   MIDNIGHT = 24
   START_TO_BED_RATE = 12
   BED_TO_MIDNIGHT_RATE = 8
   MIDNIGHT_TO_LEAVE_RATE = 16
-
 
   attr_accessor :start_time,
                 :bed_time,
@@ -22,7 +20,6 @@ class BabysitterKata::Job
     @bed_time = bed_time
     @leave_time = leave_time
   end
-
 
   def start_to_bed_hours
     if pm?(@bed_time)

@@ -6,6 +6,10 @@ module Hour
     Time.parse(str)
   end
 
+  def start_hour(time)
+    parse_time(time).hour
+  end
+
   def get_hour(str)
     parsed_time = parse_time(str)
     parsed_time.min != 00 ? parsed_time.hour.next : parsed_time.hour

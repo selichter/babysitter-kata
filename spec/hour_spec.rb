@@ -8,6 +8,17 @@ describe 'Hour module' do
     end
   end
 
+  describe '#start_hour' do
+    time = "5pm"
+    it 'returns an integer' do
+      expect(test_class.start_hour(time)).to be_a(Integer)
+    end
+
+    it 'returns the correct hour for the given start time' do
+      expect(test_class.start_hour(time)).to be(17)
+    end
+  end
+
   describe '#get_hour' do
     it 'returns the current hour when time passed is on the hour' do
       leave_time = "1am"
