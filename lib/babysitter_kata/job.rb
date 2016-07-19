@@ -1,11 +1,12 @@
 require 'time'
 require_relative './hour.rb'
+require_relative './validator.rb'
 
 class BabysitterKata::Job
   include Hour
+  include Validator
 
-  AVAILABLE_START_TIME = 17
-  LEAVE_BY = 4
+
   MIDNIGHT = 24
   START_TO_BED_RATE = 12
   BED_TO_MIDNIGHT_RATE = 8
@@ -52,9 +53,9 @@ class BabysitterKata::Job
   end
 
   def validate_times
-    if parse_time(@start_time).hour < AVAILABLE_START_TIME
+    if !valid_start?(@start_time)
       raise StandardError, 'The earliest available start time is 5pm.'
-    elsif get_hour(@leave_time) > LEAVE_BY
+    elsif !valid_leave?(@leave_time)
       raise StandardError, 'The sitter must leave by 4am.'
     end
   end
