@@ -49,9 +49,13 @@ class BabysitterKata::Job
     end
   end
 
+  # def calculate_payment
+  #   validate_times
+  #    start_to_bed_hours * START_TO_BED_RATE + bed_to_midnight_hours * BED_TO_MIDNIGHT_RATE + midnight_to_leave_hours * MIDNIGHT_TO_LEAVE_RATE
+  # end
+
   def calculate_payment
-    validate_times
-     start_to_bed_hours * START_TO_BED_RATE + bed_to_midnight_hours * BED_TO_MIDNIGHT_RATE + midnight_to_leave_hours * MIDNIGHT_TO_LEAVE_RATE
+    BabysitterKata::Invoice.new(start_to_bed_hours, bed_to_midnight_hours, midnight_to_leave_hours)
   end
 
 end
