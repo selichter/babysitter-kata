@@ -20,5 +20,17 @@ describe 'Hour module' do
     end
   end
 
+  describe 'pm?' do
+    it 'returns true if the time is pm' do
+      time = "5pm"
+      expect(test_class.pm?(time)).to be(true)
+    end
+
+    it 'returns false if the time is am' do
+      time = "1am"
+      expect(test_class.pm?(time)).to be(false)
+    end
+  end
+
 
 end

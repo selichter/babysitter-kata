@@ -11,8 +11,8 @@ module Hour
     parsed_time.min != 00 ? parsed_time.hour.next : parsed_time.hour
   end
 
-  # def before_midnight?(time)
-  #   get_hour(time) >= AVAILABLE_START_TIME && get_hour(time) <= MIDNIGHT ? true : false
-  # end
+  def pm?(time)
+    parse_time(time).hour > 12 ? true : false
+  end
 
 end

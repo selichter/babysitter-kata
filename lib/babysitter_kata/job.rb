@@ -53,7 +53,7 @@ class BabysitterKata::Job
   end
 
   def validate_times
-    if !valid_start?(@start_time)
+    if !valid_start?(@start_time) 
       raise StandardError, 'The earliest available start time is 5pm.'
     elsif !valid_leave?(@leave_time)
       raise StandardError, 'The sitter must leave by 4am.'
