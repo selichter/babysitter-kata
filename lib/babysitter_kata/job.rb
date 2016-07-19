@@ -25,28 +25,28 @@ class BabysitterKata::Job
   # deals with hour conversion/formatting
   # this method isn't about the time being before midnight, but more about it being between 5 and midnight...
   #is this actually a validation?
+  # the problem with this is that we're calculating whether or not a time is before midnight by the available start time - not by referencing midnight. This makes moving the method to the hour module as is a bad idea.
+  # should I insted be looking for the time being am/pm?
   def before_midnight?(time)
     get_hour(time) >= AVAILABLE_START_TIME && get_hour(time) <= MIDNIGHT ? true : false
   end
 
-  # Calculates a time period
   def start_to_bed_hours
-    if before_midnight?(@bed_time) === true
+    if get_hour(@bed_time) >= AVAILABLE_START_TIME && get_hour(@bed_time) <= MIDNIGHT
       get_hour(@bed_time) - parse_time(@start_time).hour
     else
       MIDNIGHT - parse_time(@start_time).hour + get_hour(@bed_time)
     end
   end
 
-# Calculates a time period
   def bed_to_midnight_hours
     MIDNIGHT - get_hour(@bed_time)
   end
-# Calculates a time period
+
   def bed_to_leave_hours
     get_hour(@leave_time) - get_hour(@bed_time)
   end
-# Calculates a time period
+
   def midnight_to_leave_hours
     get_hour(@leave_time)
   end
