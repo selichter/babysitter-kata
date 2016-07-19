@@ -25,6 +25,10 @@ class BabysitterKata::Invoice
   def midnight_to_leave_pmt
     @midnight_to_leave_hours * MIDNIGHT_TO_LEAVE_RATE
   end
+
+  def total_pmt
+    start_to_bed_pmt + bed_to_midnight_pmt + midnight_to_leave_pmt
+  end
   # def calculate_payment
   #   validate_times
   #    start_to_bed_hours * START_TO_BED_RATE + bed_to_midnight_hours * BED_TO_MIDNIGHT_RATE + midnight_to_leave_hours * MIDNIGHT_TO_LEAVE_RATE

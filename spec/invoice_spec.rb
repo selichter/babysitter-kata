@@ -51,4 +51,10 @@ describe BabysitterKata::Invoice do
     end
   end
 
+  describe '#total_pmt' do
+    it 'calculates the total payment for the job' do
+      expect(invoice.total_pmt).to eq(68)
+    end
+  end
+
 end
