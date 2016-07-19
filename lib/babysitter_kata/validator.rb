@@ -14,4 +14,8 @@ module Validator
     parse_time(time).hour >= AVAILABLE_START_TIME ? true: false
   end
 
+  def valid_leave?(time)
+    get_hour(time) <= LEAVE_BY ? true: false
+  end
+
 end
