@@ -48,8 +48,13 @@ class BabysitterKata::Job
 
   def calculate_payment
     validate_times
-    invoice = BabysitterKata::Invoice.new(start_to_bed_hours, bed_to_midnight_hours, midnight_to_leave_hours)
+    if pm?(@bed_time)
+      invoice = BabysitterKata::Invoice.new(start_to_bed_hours, bed_to_midnight_hours, midnight_to_leave_hours)
+    else
+      invoice = BabysitterKata::Invoice.new(start_to_bed_hours, 0, bed_to_leave_hours)
+    end
     invoice.total_pmt
+
   end
 
 end

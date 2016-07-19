@@ -89,6 +89,13 @@ describe BabysitterKata::Job do
       invoice = BabysitterKata::Invoice.new(2, 3, 1)
       expect(invoice.total_pmt).to eq(64)
     end
+
+    it 'returns the total payment when bed time is after midnight' do
+      job.bed_time = "1am"
+      invoice = BabysitterKata::Invoice.new(7, 0, 3)
+      expect(invoice.total_pmt).to eq(132)
+    end
+
   end
 
 end
