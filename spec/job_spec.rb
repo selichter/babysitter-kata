@@ -83,7 +83,11 @@ describe BabysitterKata::Job do
     it 'creates a new instance of the Invoice class' do
       invoice = BabysitterKata::Invoice.new(2, 3, 1)
       expect(invoice).to be_a(Object)
+    end
 
+    it 'returns the total payment as calculated by the invoice' do
+      invoice = BabysitterKata::Invoice.new(2, 3, 1)
+      expect(invoice.total_pmt).to eq(64)
     end
   end
 
