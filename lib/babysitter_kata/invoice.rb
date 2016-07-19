@@ -1,4 +1,7 @@
 class BabysitterKata::Invoice
+  START_TO_BED_RATE = 12
+  BED_TO_MIDNIGHT_RATE = 8
+  MIDNIGHT_TO_LEAVE_RATE = 16
 
   attr_accessor :start_to_bed_hours,
                 :bed_to_midnight_hours,
@@ -11,7 +14,9 @@ class BabysitterKata::Invoice
   end
 
 
-
+  def start_to_bed_pmt
+    @start_to_bed_hours * START_TO_BED_RATE
+  end
 
   # def calculate_payment
   #   validate_times

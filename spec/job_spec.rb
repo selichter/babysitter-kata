@@ -87,6 +87,4 @@ describe BabysitterKata::Job do
     end
   end
 
-
-
 end

@@ -7,9 +7,6 @@ class BabysitterKata::Job
   include Validator
 
   MIDNIGHT = 24
-  START_TO_BED_RATE = 12
-  BED_TO_MIDNIGHT_RATE = 8
-  MIDNIGHT_TO_LEAVE_RATE = 16
 
   attr_accessor :start_time,
                 :bed_time,
