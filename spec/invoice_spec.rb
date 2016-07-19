@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe BabysitterKata::Invoice do
-  let(:invoice){BabysitterKata::Invoice.new}
+  let(:invoice){BabysitterKata::Invoice.new( 3, 2, 1)}
 
   it 'is defined' do
     expect(BabysitterKata::Invoice).to be_a(Class)
@@ -20,6 +20,14 @@ describe BabysitterKata::Invoice do
 
     it 'has a midnight_to_leave_hours' do
       invoice.midnight_to_leave_hours = 1
+      expect(invoice.midnight_to_leave_hours).to eq(1)
+    end
+  end
+
+  describe '#initialize' do
+    it 'accepts start_to_bed_hours, bed_to_midnight_hours, and midnight_to_leave_hours' do
+      expect(invoice.start_to_bed_hours).to eq(3)
+      expect(invoice.bed_to_midnight_hours).to eq(2)
       expect(invoice.midnight_to_leave_hours).to eq(1)
     end
   end
